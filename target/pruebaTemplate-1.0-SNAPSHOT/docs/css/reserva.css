@@ -1,0 +1,29 @@
+*{
+    margin: 0;
+    padding: 0
+}
+*,*::before, *::after {
+    box-sizing: border-box
+}
+
+.imagen {
+    height: 20rem;
+    background-image: url(../images/2.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.container {
+    display: none; 
+    padding: 20px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+}
+.nav-link {
+    color: blue; /* Opcional: Estilo para el enlace activo */
+    font-weight: bold;
+}
+#container1{
+    display: block;
+}

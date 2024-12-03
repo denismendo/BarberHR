@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f51b33dd-6073-4dbb-968d-8e71db62340a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="fecha_inicio" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="fecha_fin" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT F.id_factura, F.fecha_factura, C.nombre, C.apellido, S.nombre AS nombre_servicio, F.total 
+FROM facturacion F
+INNER JOIN detalle_factura DF
+    ON DF.id_factura = F.id_factura
+INNER JOIN servicios S
+    ON DF.id_servicio = S.id_servicio
+INNER JOIN reservas R 
+    ON F.id_reserva = R.id_reserva
+INNER JOIN clientes C
+    ON R.id_cliente = C.id_cliente
+WHERE F.fecha_factura BETWEEN $P{fecha_inicio} AND $P{fecha_fin}
+ORDER BY F.fecha_factura;]]>
+	</queryString>
+	<field name="id_factura" class="java.lang.Integer"/>
+	<field name="fecha_factura" class="java.sql.Date"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="apellido" class="java.lang.String"/>
+	<field name="nombre_servicio" class="java.lang.String"/>
+	<field name="total" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="250" y="31" width="273" height="25" uuid="0e2967e5-7af1-4ac3-b540-f9122c138eb8"/>
+				<textElement textAlignment="Center">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[INFORME FACTURAS]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<textField>
+				<reportElement x="164" y="0" width="100" height="20" uuid="f68054d3-d12b-4753-a334-ab8468cf2793"/>
+				<textFieldExpression><![CDATA[$P{fecha_inicio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="511" y="0" width="100" height="20" uuid="59e6f477-36d2-4793-8471-50c7dd8246f7"/>
+				<textFieldExpression><![CDATA[$P{fecha_fin}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="436" y="0" width="75" height="20" uuid="25933a3e-1c71-412e-a92b-1d2ae81cb4a2"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA FIN:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="72" y="0" width="92" height="20" uuid="7b15c74c-54e6-4587-a72e-a5a26b8a111a"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA INICIO:]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="46" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="125" height="20" uuid="bb9a324f-27f5-4a02-a606-61662ba3604f"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="125" y="0" width="125" height="20" uuid="5dc7f685-aff4-49be-b1cd-e62a59cc2c02"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA_FACTURA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="250" y="0" width="125" height="20" uuid="11dbed21-7603-4da8-ab20-bbc2bfdbb951"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NOMBRE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="375" y="0" width="125" height="20" uuid="3201bb60-dd47-4d04-8ce9-c05f7e3b6e3f"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[APELLIDO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="500" y="0" width="125" height="20" uuid="6c79cd53-9bc0-4a68-9d98-9e6f0b974e94"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SERVICIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="625" y="0" width="125" height="20" uuid="5d3faac7-7cde-4e9a-a842-f4f406284fdf"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="28" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="125" height="20" uuid="2f537d47-ae6e-4979-b28b-de50a72b983e"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{id_factura}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="125" y="0" width="125" height="20" uuid="661cd44a-601b-4b50-88e4-1ab7d4661877"/>
+				<textFieldExpression><![CDATA[$F{fecha_factura}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="250" y="0" width="125" height="20" uuid="623ab8ba-5b9c-4341-826c-f3ccc94cb02a"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="375" y="0" width="125" height="20" uuid="44029b7f-96ad-46f0-abec-e2898b97ea3c"/>
+				<textFieldExpression><![CDATA[$F{apellido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="500" y="0" width="125" height="20" uuid="7b251f88-8fe8-4baf-97cf-2e0502d8ae7a"/>
+				<textFieldExpression><![CDATA[$F{nombre_servicio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="625" y="0" width="125" height="20" uuid="c6215721-d846-4558-b36e-171321928860"/>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

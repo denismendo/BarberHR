@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="792" pageHeight="612" orientation="Landscape" columnWidth="752" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0b4fff05-0753-4cc7-b733-1f88b5f0997d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[select * from cobros;]]>
+	</queryString>
+	<field name="id_cobro" class="java.lang.Integer"/>
+	<field name="id_factura" class="java.lang.Integer"/>
+	<field name="id_metodopago" class="java.lang.Integer"/>
+	<field name="monto" class="java.lang.Integer"/>
+	<field name="estado" class="java.lang.String"/>
+	<field name="numero_transaccion" class="java.lang.String"/>
+	<field name="id_tarjeta" class="java.lang.Integer"/>
+	<field name="fecha_cobro" class="java.sql.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="94" height="20" uuid="52cf8b73-b9eb-40e0-a030-2f60c2c1440d"/>
+				<text><![CDATA[id_cobro]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="94" y="0" width="94" height="20" uuid="a9f0e449-dc26-4262-81f9-2ec8049398c3"/>
+				<text><![CDATA[id_factura]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="188" y="0" width="94" height="20" uuid="e6e085a0-3b25-46f9-875b-929716d0f70d"/>
+				<text><![CDATA[id_metodopago]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="282" y="0" width="94" height="20" uuid="767ffb2c-fc6d-400a-be83-8a6e1f2ee11a"/>
+				<text><![CDATA[monto]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="376" y="0" width="94" height="20" uuid="71588a0b-6224-476f-9166-14d4d850640d"/>
+				<text><![CDATA[estado]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="470" y="0" width="94" height="20" uuid="f37de533-fb3a-418f-9c78-c3379c5ed300"/>
+				<text><![CDATA[numero_transaccion]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="564" y="0" width="94" height="20" uuid="f191fc17-79ce-4545-84db-af552eef48b9"/>
+				<text><![CDATA[id_tarjeta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="658" y="0" width="94" height="20" uuid="553eccc3-e0a0-47d3-9264-2e005bab2272"/>
+				<text><![CDATA[fecha_cobro]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="94" height="20" uuid="579b9923-0653-4d37-b1d7-9fdf1314a433"/>
+				<textFieldExpression><![CDATA[$F{id_cobro}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="94" y="0" width="94" height="20" uuid="ac6da590-e828-4b44-8189-eca70f71eee1"/>
+				<textFieldExpression><![CDATA[$F{id_factura}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="188" y="0" width="94" height="20" uuid="6c2406a4-c24f-4c64-934d-96f3718c4734"/>
+				<textFieldExpression><![CDATA[$F{id_metodopago}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="282" y="0" width="94" height="20" uuid="879c86a5-6d9e-4573-815d-860300b505e0"/>
+				<textFieldExpression><![CDATA[$F{monto}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="376" y="0" width="94" height="20" uuid="7d754b7f-cc18-4d68-a3a7-e8ea6dfef4d5"/>
+				<textFieldExpression><![CDATA[$F{estado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="470" y="0" width="94" height="20" uuid="97a65ec8-9748-4c85-a513-d1834792a847"/>
+				<textFieldExpression><![CDATA[$F{numero_transaccion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="564" y="0" width="94" height="20" uuid="0e95330b-ea4f-410e-8fdb-0bbfe724e1b1"/>
+				<textFieldExpression><![CDATA[$F{id_tarjeta}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="658" y="0" width="94" height="20" uuid="e50ea653-f626-4816-932d-eee8cf185be7"/>
+				<textFieldExpression><![CDATA[$F{fecha_cobro}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
